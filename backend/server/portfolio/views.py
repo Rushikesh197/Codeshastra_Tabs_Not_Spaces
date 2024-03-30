@@ -69,7 +69,7 @@ def sell_asset(request):
         print(e)
         return JsonResponse(status=400,data={"message":e.message if hasattr(e,"message") else "Error while buying the Asset"})
 
-@auth_required
+#@auth_required
 def list_transactions(request):
     try:
         user=request.pmp_user
@@ -81,7 +81,7 @@ def list_transactions(request):
         return JsonResponse(status=400,data={"message":"Error while fetching portfolio items"})
     
 
-@auth_required
+#@auth_required
 def list_portfolio(request):
     try:
         user=request.pmp_user
@@ -201,7 +201,7 @@ def delete_asset_from_watchlist(request,watchlist_id):
         return JsonResponse(status=400,data={"message":"Watchlist or Asset Not Found"})
 
 
-@auth_required
+#@auth_required
 def get_user_metrics(request):
     try:
         user=request.pmp_user
