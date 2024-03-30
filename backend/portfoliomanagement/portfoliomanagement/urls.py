@@ -22,4 +22,5 @@ urlpatterns = [
     path('', include('assets.urls')),
     path('', include('asset_pricing.urls')),
     path('portfolio/', include('portfolio.urls')),
+    path('notifications/', include('notifications.urls')),
 ]
