@@ -7,7 +7,7 @@
             "askForPassword": true,
             "driver": "PostgreSQL",
             "name": "pmp",
-            "database": "PMP",
+            "database": "pmp",
             "username": "postgres"
         }
     ]
