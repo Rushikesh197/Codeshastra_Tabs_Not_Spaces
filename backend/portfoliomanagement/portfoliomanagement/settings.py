@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'assets.apps.AssetsConfig',
     'assets',
     'asset_pricing',
+    'pmp_user'
     'rest_framework',
     'portfolio',
     'notifications.apps.NotificationsConfig',
