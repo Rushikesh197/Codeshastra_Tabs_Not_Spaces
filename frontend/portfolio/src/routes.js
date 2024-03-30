@@ -1,5 +1,7 @@
 //import { LogIn, Register, LandingPage, Dashboard, Portfolio, Assets, EditAsset, Profile, ActivityLogs } from './pages';
 import  LandingPage  from "./pages/LandingPage/LandingPage";
+import Login from "./pages/Login/Login";
+import Register from "./pages/Register/Register";
 //import { SignedIn, SignedOut } from "@clerk/clerk-react";
 //import DashboardLayout from './components/layouts/DashboardLayout';
 //import ViewAsset from './pages/Assets/components/ViewAsset';
@@ -8,14 +10,14 @@ import  LandingPage  from "./pages/LandingPage/LandingPage";
 //import Positions from './pages/Reports/components/Positions';
 
 const routes = [
-  // {
-  //   path: '/sign-in',
-  //   element: <LogIn />
-  // },
-  // {
-  //   path: '/sign-up',
-  //   element: <Register /> 
-  // },
+  {
+    path: '/sign-in',
+    element: <Login />
+  },
+  {
+    path: '/sign-up',
+    element: <Register /> 
+  },
   {
     path: '/',
     element: <LandingPage /> 
