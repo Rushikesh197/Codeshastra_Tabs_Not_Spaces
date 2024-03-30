@@ -34,6 +34,7 @@ const Header = ({ openModal }) => {
   notifications = Object.values(notifications).reverse();
 
   const [balance, setBalance] = useState(1000); // Set initial balance value
+  useSelector((state)=>state.balance);
 
   // Function to update balance
   const onUpdateBalance = (amount) => {

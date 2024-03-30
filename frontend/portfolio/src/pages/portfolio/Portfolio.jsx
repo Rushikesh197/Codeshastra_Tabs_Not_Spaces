@@ -18,6 +18,9 @@ import { MdClose } from "react-icons/md";
 // import Statistic from "./components/Charts/Statistic";
 // import { AiOutlineShoppingCart } from "react-icons/ai";
 // import { FaArrowRightArrowLeft } from "react-icons/fa6";
+import { updateBalance } from './components/actions/action';
+import { useDispatch } from 'react-redux';
+
 
 const Portfolio = () => {
   const { user } = useUser();
@@ -38,6 +41,25 @@ const Portfolio = () => {
   const calendarRef = useRef(null);
   const [personalCategories, setPersonalCategories] = useState({});
   const [status, setStatus] = useState("IDLE");
+
+  const dispatch = useDispatch();
+
+  const handleSellStock = () => {
+    // Logic to sell the stock and calculate the new balance
+    const newBalance = calculateNewBalance(); // Implement your logic here
+
+    // Dispatch the action to update the balance
+    dispatch(updateBalance(newBalance));
+  };
+
+  const calculateNewBalance = (currentBalance, soldAmount) => {
+    // Assuming soldAmount is the amount of money obtained from selling a stock
+    // You need to deduct this amount from the current balance
+    const newBalance = currentBalance - soldAmount;
+    
+    // Return the new balance
+    return newBalance;
+  };
 
   useEffect(() => {
     if(rows.length !== 0) {

@@ -19,7 +19,7 @@ import Statistics from "./Statistics";
 import { useUser } from "@clerk/clerk-react";
 import Loader from "../../../components/Loader/Loader";
 
-const ViewAsset = () => {
+const ViewAsset = ({ balance }) => {
   const { ticker } = useParams();
   const { user } = useUser();
   const [assetDetails, setAssetDetails] = useState(null);
@@ -260,9 +260,9 @@ const ViewAsset = () => {
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 mt-4">
             <div
-              className="card card-border mt-4 bg-green-600 dark:bg-green-600 dark:hover:bg-green-500 text-center cursor-pointer hover:bg-green-700"
+              className={`card card-border mt-4 bg-green-600 dark:bg-green-600 dark:hover:bg-green-500 text-center cursor-pointer hover:bg-green-700 ${balance >= assetDetails.market_value ? '' : 'pointer-events-none opacity-50'}`}
               role="presentation"
-              onClick={() => openModal("BUY")}
+              onClick={() => balance >= assetDetails.market_value && openModal("BUY")}
             >
               <div className="card-body">
                 <h6 className="text-white">BUY</h6>
@@ -270,9 +270,9 @@ const ViewAsset = () => {
             </div>
 
             <div
-              className="card card-border mt-4 bg-red-500 dark:bg-red-600 dark:hover:bg-red-500 text-center cursor-pointer hover:bg-red-600"
+              className={`card card-border mt-4 bg-red-500 dark:bg-red-600 dark:hover:bg-red-500 text-center cursor-pointer hover:bg-red-600 ${balance >= assetDetails.market_value ? '' : 'pointer-events-none opacity-50'}`}
               role="presentation"
-              onClick={() => openModal("SELL")}
+              onClick={() => balance >= assetDetails.market_value && openModal("SELL")}
             >
               <div className="card-body text-white">
                 <h6 className="text-white">SELL</h6>
