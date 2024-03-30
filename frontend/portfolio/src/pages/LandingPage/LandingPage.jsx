@@ -15,11 +15,14 @@ import { setActive } from "../../state/slices/configSlice";
 const LandingPage = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  // const { user } = useUser();
+  const { user } = useUser();
 
   useEffect(() => {
-    dispatch(setActive("landing")); // Set active page to landing
-  }, [dispatch]);
+    if(user) {
+      dispatch(setActive("dashboard"))
+      navigate('/app/dashboard');
+    }
+  }, [user, navigate, dispatch]);
 
   return (
     <>
