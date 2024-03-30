@@ -3,7 +3,7 @@ import { useSelector } from "react-redux";
 import dayjs from "dayjs";
 import { getTopGainersAndLosers } from "../../api";
 import TopListing from "./components/TopListing/TopListing";
-import Statistic from "../Portfolio/components/Charts/Statistic";
+import Statistic from "../portfolio/components/charts/Statistic";
 import { Card, Donut, Calendar } from "./components/components";
 import { MdClose } from "react-icons/md";
 import { HiOutlineFilter } from "react-icons/hi";
