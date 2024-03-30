@@ -10,10 +10,10 @@ import {
 } from "@clerk/clerk-react";
 import Portfolio from './pages/Portfolio/Portfolio';
 import routes from './routes';
-import { useSelector } from 'react-redux';
+import { Provider, useSelector } from 'react-redux';
 import { useEffect } from 'react';
 
-
+  
 const clerkPubKey = "pk_test_dHJ1c3RpbmctcXVldHphbC03Ny5jbGVyay5hY2NvdW50cy5kZXYk";
 
 function ClerkProviderWithRoutes() {
