@@ -42,12 +42,12 @@
 2. Navigate to the directory where you want to clone the repository.
 3. Run the following command:
    ```bash
-   git clone https://github.com/portfoliomanagementtool/pmp-react
+   https://github.com/Rushikesh197/Codeshastra_Tabs_Not_Spaces.git
 
 ### Instructions
 1. Navigate to the cloned repository directory.
    ```bash
-   cd pmp-react
+   cd frontend/portfolio
 
 2. Run the following command to install dependencies:
    ```bash
@@ -72,12 +72,12 @@ To get started with the backend development environment, follow these steps:
 a
 1. **Clone this repository:**
    ```
-   git clone https://github.com/portfoliomanagementtool/pmp-backend.git
+   https://github.com/Rushikesh197/Codeshastra_Tabs_Not_Spaces.git
    ```
 
 2. **Navigate to the project directory:**
    ```
-   cd pmp-backend
+   cd backend/portfoliomanagement
    ```
 
 3. **Create a virtual environment:**
