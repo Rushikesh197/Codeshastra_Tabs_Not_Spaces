@@ -60,8 +60,6 @@
 2. Open your browser and go to [http://localhost:3000](http://localhost:3000) to access the portfolio management platform.
 3. Log in using your credentials.
 
-# Feel free to explore the platform, interact with its features. Enjoy managing your investment portfolio effectively! 📈💼
-
 # Project Name: PMP Backend
 
 This repository contains the backend codebase for PMP (Portfolio Management Tool). It is built using Django and Django REST Framework, with PostgreSQL as the primary database and TimescaleDB for time-series data storage. The application is containerized with Docker for easier deployment and scalability.
@@ -178,5 +176,7 @@ a
 - **Example Usage**: 
   - To delete a user: `DELETE /users/<str:pk>/delete/`
 
+
+# Feel free to explore the platform, interact with its features. Enjoy managing your investment portfolio effectively! 📈💼
 ---
 
