@@ -8,21 +8,21 @@
 
 ## Features
 
-### Dashboard Overview 📊
-- Get a comprehensive overview of your portfolio's performance, including current value, invested value, and day profit/loss.
-- Navigate through various metrics and charts to analyze investment trends and make informed decisions.
+**Dashboard Overview 📊**
+- View comprehensive portfolio performance metrics: current value, invested value, day profit/loss.
+- Analyze investment trends with interactive charts and metrics for informed decision-making.
 
-### Asset Management 💼
-- View all your assets with details such as current market value, average basis, and profit/loss.
-- Easily watchlist any asset for future monitoring and receive timely updates and notifications.
+**Asset Management 💼**
+- Access detailed information on all assets including market value, average basis, and profit/loss.
+- Watchlist assets for future monitoring and receive timely updates and notifications.
+
+**Reports Generation 📝**
+- Generate comprehensive reports on portfolio performance and investment history.
+- Analyze trends and make data-driven decisions with AI-powered insights and suggestions included in PDF summaries.
 
 ### Portfolio Monitoring 📈
 - Monitor your monthly investments and track your asset distribution over time.
 - Dive into detailed insights for each asset to make informed decisions and optimize your investment strategy.
-
-### Reports Generation 📝 
-- Generate comprehensive reports on your portfolio's performance and investment history.
-- Analyze trends and make data-driven decisions for your investment strategy based on generated reports.
 
 ### Watchlist Management 👀 
 - Keep track of assets you're interested in by adding them to your watchlist.
@@ -34,6 +34,8 @@
 - **ApexCharts**: Interactive charting library for visualizing data
 - **Tailwind CSS**: Utility-first CSS framework for styling components
 - **Clerk**: Authentication and user management platform for secure login and authorization
+- **FPDF**: For manipulation and creation of PDF using python
+- **Gemini**: Google LLM.
 
 ## Setup Instructions 🚀
 
