@@ -18,6 +18,7 @@ import { TbCoinRupee } from "react-icons/tb";
 import { markAllNotificationsAsRead, markNotificationAsRead } from "../../api";
 import { markAsRead, markAllAsRead } from "../../state/slices/notificationSlice";
 import AddMoneyToWallet from "./Addmoneytowallet";
+import { updateBalance } from "../../state/action";
 
 const Header = ({ openModal }) => {
   const dispatch = useDispatch();
@@ -30,15 +31,13 @@ const Header = ({ openModal }) => {
   const [notifyDropdown, showNotifyDropdown] = useState(false);
   const userRef = useRef(null);
   const notifyRef = useRef(null);
+  const [balance, setBalance] = useState(1000);
   let { notifications, numberOfUnreads } = useSelector((state) => state.notifications)
   notifications = Object.values(notifications).reverse();
 
-  const [balance, setBalance] = useState(1000); // Set initial balance value
-  useSelector((state)=>state.balance);
-
   // Function to update balance
   const onUpdateBalance = (amount) => {
-    setBalance(balance + amount);
+    setBalance(balance + amount); // Dispatch action to update balance
   };
 
   const updateNotifcation = async (id) => {

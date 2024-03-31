@@ -77,7 +77,7 @@ const SideNav = () => {
           id: "downloads",
           name: "Downloads",
           icon: <MdArrowDownward />,
-          path: "/app/dashboard",
+          path: "/app/child",
           dropDown: false,
         },
       ],

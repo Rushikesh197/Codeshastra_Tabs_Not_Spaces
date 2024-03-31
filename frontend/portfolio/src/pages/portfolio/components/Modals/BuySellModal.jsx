@@ -4,7 +4,7 @@ import Switch from "@mui/material/Switch";
 import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
 import { useDispatch, useSelector } from 'react-redux';
-import { buyAsset, sellAsset } from "../../../../state/slices/portfolioSlice";
+import { buyAsset, sellAsset, saveBalance, updateBalance } from "../../../../state/slices/portfolioSlice";
 import { useUser } from "@clerk/clerk-react";
 import { getPortfolio } from "../../../../api";
 
@@ -21,6 +21,7 @@ const BuySellModal = ({
   const mode = useSelector((state) => state.config.mode);
   const isDarkMode = mode === "dark";
   const [checked, setChecked] = React.useState(initialChecked);
+  const balance = useSelector((state) => state.portfolio.balance);
   const [formState, setFormState] = useState(
     defaultValue || {
       category: "",
@@ -31,8 +32,11 @@ const BuySellModal = ({
   );
   const [quantity, setQuantity] = useState(formState.quantity);
   // console.log(formState);
-
   const [errors, setErrors] = useState("");
+
+  const handleUpdateBalance = (props) => {
+    dispatch(updateBalance(props)); // Example: Increase balance by 100
+  };
 
   const formatData = (data) => {
     return data.map((item, index) => {
@@ -106,11 +110,15 @@ const BuySellModal = ({
     }
 
     // console.log(formData)
+    console.log(balance)
 
     if (checked) {
       dispatch(sellAsset(formData, email, interval));
-    } else {
+      handleUpdateBalance(-formData.quantity * formData.price); // Subtract sold asset value from balance
+      console.log("current balance:", balance)
+    } else if(balance > formData.price * formData.quantity) {
       dispatch(buyAsset(formData, email, interval));
+      handleUpdateBalance(formData.quantity * formData.price);  // Add bought asset value to balance
     }
 
     fetchPortfolio();
@@ -210,6 +218,9 @@ const BuySellModal = ({
               }}
             />
           </Box>
+        </div>
+        <div className="mt-4">
+          <span className="text-lg font-semibold">Balance: {balance}</span>
         </div>
         <div
           className={`card card-border mt-4 ${

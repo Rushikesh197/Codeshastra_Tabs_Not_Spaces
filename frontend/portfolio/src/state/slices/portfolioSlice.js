@@ -1,8 +1,10 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { getMetrics, buyAsset as buyAssetAPI, sellAsset as sellAssetAPI, getNotifications } from "../../api";
 import { saveNotifications } from "./notificationSlice";
+import { useSelector } from "react-redux";
 
 const initialState = {
+  balance: 1000,
   metrics: [],
   equityDistribution: {},
   interval: {
@@ -11,29 +13,37 @@ const initialState = {
   },
 };
 
+
 export const portfolioSlice = createSlice({
   name: "portfolio",
   initialState,
   reducers: {
     saveMetrics: (state, action) => {
-      state.metrics = action.payload
+      state.metrics = action.payload;
     },
     saveEquityDistribution: (state, action) => {
-      state.equityDistribution = action.payload
+      state.equityDistribution = action.payload;
     },
     saveTimeInterval: (state, action) => {
-      state.interval = action.payload
+      state.interval = action.payload;
     },
     saveStartDate: (state, action) => {
-      state.interval.start = action.payload
+      state.interval.start = action.payload;
     },
     saveEndDate: (state, action) => {
-      state.interval.end = action.payload
+      state.interval.end = action.payload;
+    },
+    // New action to save balance
+    saveBalance: (state, action) => {
+      state.balance = action.payload;
+    },
+    updateBalance(state, action) {
+      state.balance += action.payload;
     },
   }
 });
 
-export const { saveMetrics, saveEquityDistribution, saveTimeInterval, saveStartDate, saveEndDate } = portfolioSlice.actions;
+export const { saveMetrics, saveEquityDistribution, saveTimeInterval, saveStartDate, saveEndDate, saveBalance, updateBalance } = portfolioSlice.actions;
 export default portfolioSlice.reducer;
 
 export const fetchMetrics = (interval, email) => async (dispatch) => {
@@ -45,6 +55,8 @@ export const fetchMetrics = (interval, email) => async (dispatch) => {
     const { data } = await getMetrics(start, end, email);
     dispatch(saveMetrics(data.metrics));
     dispatch(saveEquityDistribution(data.categories));
+    // Assuming 'data.balance' contains the balance value
+    dispatch(saveBalance(data.balance));
   } catch (error) {
     console.log(error.message)
   }
@@ -65,6 +77,7 @@ const formatNotifications = (notifications) => {
 
   return formattedNotifications;
 }
+
 
 export const buyAsset = (data, email, interval) => async (dispatch) =>{
   console.log("buy", data)
@@ -120,4 +133,8 @@ export const sellAsset = (data, email, interval) => async (dispatch) =>{
   } catch (error) {
     console.log(error.message)
   }
+};
+
+export const usePortfolioBalance = () => {
+  return useSelector((state) => state.portfolio.balance);
 };

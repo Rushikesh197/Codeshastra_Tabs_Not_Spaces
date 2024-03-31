@@ -4,6 +4,7 @@ import DashboardLayout from './components/layouts/DashboardLayout';
 import ViewAsset from './pages/Assets/components/ViewAsset';
 import Watchlist from './pages/Watchlist/Watchlist';
 import Transactions from './pages/Transactions/Transactions';
+import ExecutePythonScript from './pages/Child/ExecutePythonScript';
 import Positions from './pages/Reports/components/Positions';
 
 const routes = [
@@ -63,6 +64,10 @@ const routes = [
       {
         path:'watchlist',
         element:<Watchlist/>
+      },
+      {
+        path: 'child',
+        element: <ExecutePythonScript />
       },
       {
         path: 'profile',
